@@ -5,6 +5,9 @@ $100mil = 2.54;
 
 $kadomaru_r = 0.297658 * 2;
 
+// ---- thumb keys margin
+$thumb_margin = 0;
+
 // ---- screw hole size
 $screw_hole = (2 + 0.1) / 2;
 
@@ -32,16 +35,17 @@ module topplate (left = false) {
   difference () {
     kadomaru () {
       square([$unit * 6, $unit * 3]);
-      translate([left ? 3 * $unit : 0, -$unit]) square([$unit * 3, $unit]);
+      translate([left ? 3 * $unit : 0, - (1 + $thumb_margin) * $unit])
+        square([$unit * 3, (1 + $thumb_margin) * $unit]);
     }
     // switches
     for (x = [0, 1, 2, 3, 4, 5])
-      for (y = [-1, 0, 1, 2])
+      for (y = [- (1 + $thumb_margin), 0, 1, 2])
         translate([(x + 0.5) * $unit, (y + 0.5) * $unit])
           square([$switch_hole, $switch_hole], center = true);
     // screws
     for (x = left ? [4, 5] : [1, 2])
-      translate([x * $unit, 0])
+      translate([x * $unit, - $thumb_margin * $unit])
         circle(r = $screw_hole);
     translate([(left ? 1 : 5) * $unit, $unit])
       circle(r = $screw_hole);
@@ -56,7 +60,8 @@ module bottomplate1 (left = false) {
     kadomaru() difference () {
       union () {
         square([$unit * 6, $unit * 3]);
-        translate([left ? 3 * $unit : 0, -$unit]) square([$unit * 3, $unit]);
+        translate([left ? 3 * $unit : 0, - (1 + $thumb_margin) * $unit])
+          square([$unit * 3, (1 + $thumb_margin) * $unit]);
       }
       // promicro
       translate([2.5 * $unit, 3 * $unit - $promicro_height / 2])
@@ -70,7 +75,7 @@ module bottomplate1 (left = false) {
     }
     // skrews
     for (x = left ? [4, 5] : [1, 2])
-      translate([x * $unit, 0])
+      translate([x * $unit, - $thumb_margin * $unit])
         circle(r = $screw_hole);
     translate([(left ? 1 : 5) * $unit, $unit])
       circle(r = $screw_hole);
@@ -84,16 +89,17 @@ module bottomplate2 (left = false) {
   difference () {
     kadomaru () {
       square([$unit * 6, $unit * 3]);
-      translate([left ? 3 * $unit : 0, -$unit]) square([$unit * 3, $unit]);
+      translate([left ? 3 * $unit : 0, - (1 + $thumb_margin) * $unit])
+        square([$unit * 3, (1 + $thumb_margin) * $unit]);
     }
     // gomuashis
     if (left)
       for (x = [3 * $unit + $gomuashi_pos, 6 * $unit - $gomuashi_pos])
-        translate([x, -$unit + $gomuashi_pos])
+        translate([x, - (1 + $thumb_margin) * $unit + $gomuashi_pos])
           circle(r = $gomuashi_hole);
     else
       for (x = [$gomuashi_pos, 3 * $unit - $gomuashi_pos])
-        translate([x, -$unit + $gomuashi_pos])
+        translate([x, - (1 + $thumb_margin) * $unit + $gomuashi_pos])
           circle(r = $gomuashi_hole);
     for (x = [$gomuashi_pos, $unit * 6 - $gomuashi_pos])
       translate([x, 3 * $unit - $gomuashi_pos])
@@ -102,7 +108,7 @@ module bottomplate2 (left = false) {
       circle(r = $gomuashi_hole);
     // skrews
     for (x = left ? [4, 5] : [1, 2])
-      translate([x * $unit, 0])
+      translate([x * $unit, - $thumb_margin * $unit])
         circle(r = $screw_hole);
     translate([(left ? 1 : 5) * $unit, $unit])
       circle(r = $screw_hole);
@@ -120,8 +126,8 @@ module single_keycap_preview () {
 }
 
 module keycap_preview (left = false) {
-  for (y = [-1, 0, 1, 2])
-    for (x = y != -1 ? [0, 1, 2, 3, 4, 5] : left ? [3, 4, 5] : [0, 1, 2])
+  for (y = [- (1 + $thumb_margin), 0, 1, 2])
+    for (x = y >= 0 ? [0, 1, 2, 3, 4, 5] : left ? [3, 4, 5] : [0, 1, 2])
       translate([(x + 0.5) * $unit, (y + 0.5) * $unit])
         single_keycap_preview();
 }
@@ -129,7 +135,8 @@ module keycap_preview (left = false) {
 module pcb_preview (left = false) {
   kadomaru () {
     square([$unit * 6, $unit * 3]);
-    translate([left ? 3 * $unit : 0, -$unit]) square([$unit * 3, $unit]);
+    translate([left ? 3 * $unit : 0, - (1 + $thumb_margin) * $unit])
+      square([$unit * 3, (1 + $thumb_margin) * $unit]);
   }
 }
 
@@ -157,11 +164,11 @@ module cut_model (guide = false) {
     if (guide) square([210, 297]);
     translate([5, 5]) {
       translate([3, 3 * $unit]) mirror([0, 1]) topplate(true);
-      translate([0, 4 * $unit + 3]) topplate(false);
-      translate([3, 10 * $unit + 6]) mirror([0, 1]) bottomplate1(true);
-      translate([0, 11 * $unit + 9]) bottomplate1(false);
-      translate([7 * $unit + 6, 6 * $unit]) rotate([0, 0, -90]) bottomplate2(true);
-      translate([7 * $unit + 6, 12 * $unit + 3]) rotate([0, 0, -90]) bottomplate2(false);
+      translate([0, (4 + $thumb_margin) * $unit + 3]) topplate(false);
+      translate([3, (10 + $thumb_margin) * $unit + 6]) mirror([0, 1]) bottomplate1(true);
+      translate([0, (11 + $thumb_margin * 2) * $unit + 9]) bottomplate1(false);
+      translate([(7 + $thumb_margin) * $unit + 6, 6 * $unit]) rotate([0, 0, -90]) bottomplate2(true);
+      translate([(7 + $thumb_margin) * $unit + 6, 12 * $unit + 3]) rotate([0, 0, -90]) bottomplate2(false);
     }
   }
 }
