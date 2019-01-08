@@ -112,6 +112,20 @@ module bottomplate2 (left = false) {
   }
 }
 
+module single_keycap_preview () {
+  hull () {
+    linear_extrude(0.001) kadomaru() square([18.5, 18.5], center = true);
+    translate([0, 0, 8]) linear_extrude(0.001) kadomaru() square([14, 14], center = true);
+  }
+}
+
+module keycap_preview (left = false) {
+  for (y = [-1, 0, 1, 2])
+    for (x = y != -1 ? [0, 1, 2, 3, 4, 5] : left ? [3, 4, 5] : [0, 1, 2])
+      translate([(x + 0.5) * $unit, (y + 0.5) * $unit])
+        single_keycap_preview();
+}
+
 module pcb_preview (left = false) {
   kadomaru () {
     square([$unit * 6, $unit * 3]);
@@ -121,6 +135,8 @@ module pcb_preview (left = false) {
 
 module preview () {
   for (left = [false, true]) {
+    translate([left ? -120 : 0, 0, 17.1])
+      keycap_preview(left);
     translate([left ? -120 : 0, 0, 12.1])
       color([1, 1, 1, 0.5])
         linear_extrude(2) topplate(left);
