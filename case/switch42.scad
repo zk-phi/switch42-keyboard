@@ -28,11 +28,6 @@ module kadomaru () {
   offset (r = $kadomaru_r) offset (r = - $kadomaru_r) children();
 }
 
-module outline (left = false) {
-  kadomaru() {
-    }
-}
-
 module topplate (left = false) {
   difference () {
     kadomaru () {
