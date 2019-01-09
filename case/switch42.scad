@@ -6,7 +6,7 @@ $100mil = 2.54;
 $kadomaru_r = 0.297658 * 2;
 
 // ---- thumb keys margin
-$thumb_margin = 0;
+$thumb_margin = 0.5;
 
 // ---- screw hole size
 $screw_hole = (2 + 0.1) / 2;
