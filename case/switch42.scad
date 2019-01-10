@@ -31,19 +31,9 @@ module kadomaru () {
   offset (r = $kadomaru_r) offset (r = - $kadomaru_r) children();
 }
 
-module topplate (left = false) {
+module skrewed (left = false) {
   difference () {
-    kadomaru () {
-      square([$unit * 6, $unit * 3]);
-      translate([left ? 3 * $unit : 0, - (1 + $thumb_margin) * $unit])
-        square([$unit * 3, (1 + $thumb_margin) * $unit]);
-    }
-    // switches
-    for (x = [0, 1, 2, 3, 4, 5])
-      for (y = [- (1 + $thumb_margin), 0, 1, 2])
-        translate([(x + 0.5) * $unit, (y + 0.5) * $unit])
-          square([$switch_hole, $switch_hole], center = true);
-    // screws
+    children();
     for (x = left ? [4, 5] : [1, 2])
       translate([x * $unit, - $thumb_margin * $unit])
         circle(r = $screw_hole);
@@ -55,8 +45,23 @@ module topplate (left = false) {
   }
 }
 
+module topplate (left = false) {
+  skrewed(left) difference () {
+    kadomaru () {
+      square([$unit * 6, $unit * 3]);
+      translate([left ? 3 * $unit : 0, - (1 + $thumb_margin) * $unit])
+        square([$unit * 3, (1 + $thumb_margin) * $unit]);
+    }
+    // switches
+    for (x = [0, 1, 2, 3, 4, 5])
+      for (y = [- (1 + $thumb_margin), 0, 1, 2])
+        translate([(x + 0.5) * $unit, (y + 0.5) * $unit])
+          square([$switch_hole, $switch_hole], center = true);
+  }
+}
+
 module bottomplate1 (left = false) {
-  difference () {
+  skrewed(left) difference () {
     kadomaru() difference () {
       union () {
         square([$unit * 6, $unit * 3]);
@@ -73,20 +78,11 @@ module bottomplate1 (left = false) {
       translate([4 * $unit, 3 * $unit - $trrs_height / 2])
         square([$trrs_width, $trrs_height], center = true);
     }
-    // skrews
-    for (x = left ? [4, 5] : [1, 2])
-      translate([x * $unit, - $thumb_margin * $unit])
-        circle(r = $screw_hole);
-    translate([(left ? 1 : 5) * $unit, $unit])
-      circle(r = $screw_hole);
-    for (x = [1, 5])
-      translate([x * $unit, 2 * $unit])
-        circle(r = $screw_hole);
   }
 }
 
 module bottomplate2 (left = false) {
-  difference () {
+  skrewed(left) difference () {
     kadomaru () {
       square([$unit * 6, $unit * 3]);
       translate([left ? 3 * $unit : 0, - (1 + $thumb_margin) * $unit])
@@ -106,15 +102,6 @@ module bottomplate2 (left = false) {
         circle(r = $gomuashi_hole);
     translate([left ? $gomuashi_pos : 6 * $unit - $gomuashi_pos, $gomuashi_pos])
       circle(r = $gomuashi_hole);
-    // skrews
-    for (x = left ? [4, 5] : [1, 2])
-      translate([x * $unit, - $thumb_margin * $unit])
-        circle(r = $screw_hole);
-    translate([(left ? 1 : 5) * $unit, $unit])
-      circle(r = $screw_hole);
-    for (x = [1, 5])
-      translate([x * $unit, 2 * $unit])
-        circle(r = $screw_hole);
   }
 }
 
