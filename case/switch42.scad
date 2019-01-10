@@ -140,6 +140,10 @@ module pcb_preview (left = false) {
   }
 }
 
+module pcb_preview_kicad (left = false) {
+  translate([-51.2, 92.2, 0]) import("../pcb/switch42.stl");
+}
+
 module preview () {
   for (left = [false, true]) {
     translate([left ? -120 : 0, 0, 17.1])
@@ -150,6 +154,8 @@ module preview () {
     translate([left ? -120 : 0, 0, 7.5])
       color([1, 1, 1, 1])
         linear_extrude(1.6) pcb_preview(left);
+//    translate([left ? -120 : 0, 0, 7.5])
+//      pcb_preview_kicad(left);
     translate([left ? -120 : 0, 0, 2])
       color([1, 1, 1, 0.5])
         linear_extrude(2) bottomplate1(left);
