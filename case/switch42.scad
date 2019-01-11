@@ -3,10 +3,13 @@ $fn = 100;
 $unit = 19.05;
 $100mil = 2.54;
 
-$kadomaru_r = 0.297658 * 2;
+$pcb_grid   = 0.297658;
+$kadomaru_r = $pcb_grid * 2;
+$bottom_skrew_pos1 = $pcb_grid * 14;
+$bottom_skrew_pos2 = $pcb_grid * 12;
 
 // ---- thumb keys margin
-$thumb_margin = 0.5;
+$thumb_margin = 0.25;
 
 // ---- screw hole size
 $screw_hole = (2 + 0.1) / 2;
@@ -34,9 +37,15 @@ module kadomaru () {
 module skrewed (left = false) {
   difference () {
     children();
-    for (x = left ? [4, 5] : [1, 2])
-      translate([x * $unit, - $thumb_margin * $unit])
-        circle(r = $screw_hole);
+    if (left) {
+      for (x = [3 * $unit + $bottom_skrew_pos1, 6 * $unit - $bottom_skrew_pos2])
+        translate([x, - $bottom_skrew_pos1])
+          circle(r = $screw_hole);
+    } else {
+      for (x = [$bottom_skrew_pos2, 3 * $unit - $bottom_skrew_pos1])
+        translate([x, - $bottom_skrew_pos1])
+          circle(r = $screw_hole);
+    }
     translate([(left ? 1 : 5) * $unit, $unit])
       circle(r = $screw_hole);
     for (x = [1, 5])
