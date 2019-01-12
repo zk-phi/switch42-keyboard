@@ -2,4 +2,5 @@
 .pretty
 switch42.kicad_pcb-bak
 *.net
+*.bak
 
