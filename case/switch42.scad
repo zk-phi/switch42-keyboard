@@ -20,7 +20,7 @@ $switch_hole = 14;
 
 // ---- bottom plate placements
 $slop = 1;
-$promicro_height = 13 * $100mil + $slop / 2;
+$promicro_height = 35 + $slop / 2;
 $promicro_width  = 7 * $100mil + $slop;
 $gomuashi_hole = 10 / 2;
 $gomuashi_pos = 2 + $gomuashi_hole;
@@ -28,7 +28,7 @@ $gomuashi_pos = 2 + $gomuashi_hole;
 $reset_height = 3.5 + $slop;
 $reset_width  = 6 + $slop;
 // MJ-4PP-9
-$trrs_height = 12 + $slop / 2;
+$trrs_height = 14 + $slop / 2;
 $trrs_width  = 6 + $slop;
 
 module kadomaru () {
