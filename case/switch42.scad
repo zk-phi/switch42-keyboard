@@ -137,8 +137,10 @@ module pcb_preview (left = false) {
   }
 }
 
+// Use FreeCAD "KiCad STEP UP" plugin to generate .stl from a .kicad_pcb.
+// Note that you may need to fix the path to the .3dshapes directory.
 module pcb_preview_kicad (left = false) {
-  translate([-51.2, 92.2, 0]) import("../pcb/switch42.stl");
+  translate([9.5, 47.5, 1.6]) import("../pcb/switch42.stl");
 }
 
 module preview () {
