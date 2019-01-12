@@ -7,6 +7,7 @@ $pcb_grid   = 0.297658;
 $kadomaru_r = $pcb_grid * 2;
 $bottom_skrew_pos1 = $pcb_grid * 14;
 $bottom_skrew_pos2 = $pcb_grid * 12;
+$bottom_skrew_pos3 = $pcb_grid * 13;
 
 // ---- thumb keys margin
 $thumb_margin = 0.25;
@@ -38,11 +39,11 @@ module skrewed (left = false) {
   difference () {
     children();
     if (left) {
-      for (x = [3 * $unit + $bottom_skrew_pos1, 6 * $unit - $bottom_skrew_pos2])
+      for (x = [3 * $unit + $bottom_skrew_pos3, 6 * $unit - $bottom_skrew_pos2])
         translate([x, - $bottom_skrew_pos1])
           circle(r = $screw_hole);
     } else {
-      for (x = [$bottom_skrew_pos2, 3 * $unit - $bottom_skrew_pos1])
+      for (x = [$bottom_skrew_pos2, 3 * $unit - $bottom_skrew_pos3])
         translate([x, - $bottom_skrew_pos1])
           circle(r = $screw_hole);
     }
