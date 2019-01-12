@@ -146,9 +146,10 @@ module pcb_preview_kicad (left = false) {
 module preview () {
  for (left = [false, true]) {
     translate([left ? -120 : 0, 0, 22])
-      keycap_preview(left);
+      color([0.6, 0.6, 0.8])
+        keycap_preview(left);
     translate([left ? -120 : 0, 0, 12.1])
-      color([1, 1, 1, 0.5])
+      color([1, 1, 1, 0.3])
         linear_extrude(3) topplate(left);
     translate([left ? -120 : 0, 0, 8.5])
       color([1, 1, 1, 1])
@@ -156,10 +157,10 @@ module preview () {
 //    translate([left ? -120 : 0, 0, 8.5])
 //      pcb_preview_kicad(left);
     translate([left ? -120 : 0, 0, 3])
-      color([1, 1, 1, 0.5])
+      color([1, 1, 1, 0.3])
         linear_extrude(3) bottomplate1(left);
     translate([left ? -120 : 0, 0, 0])
-      color([1, 1, 1, 0.5])
+      color([1, 1, 1, 0.3])
         linear_extrude(3) bottomplate2(left);
   }
 }
