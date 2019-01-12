@@ -164,7 +164,7 @@ module preview () {
   }
 }
 
-module cut_model (guide = false) {
+module cut_model_a3 (guide = false) {
   difference () {
     if (guide) square([210, 297]);
     translate([5, 5]) {
@@ -178,4 +178,21 @@ module cut_model (guide = false) {
   }
 }
 
-cut_model(false);
+module cut_model_300x300 (guide = false) {
+  difference () {
+    if (guide) square([300, 300]);
+    translate([5, 5]) {
+      translate([3, 3 * $unit]) mirror([0, 1]) topplate(true);
+      translate([0, (4 + $thumb_margin) * $unit + 3]) topplate(false);
+      translate([3, (10 + $thumb_margin) * $unit + 6]) mirror([0, 1]) bottomplate1(true);
+      translate([0, (11 + $thumb_margin * 2) * $unit + 9]) bottomplate1(false);
+      translate([(7 + $thumb_margin) * $unit + 6, 6 * $unit]) rotate([0, 0, -90]) bottomplate2(true);
+      translate([(7 + $thumb_margin) * $unit + 6, 12 * $unit + 3]) rotate([0, 0, -90]) bottomplate2(false);
+      translate([(11 + $thumb_margin * 2) * $unit + 9, 6 * $unit]) rotate([0, 0, -90]) topplate(true);
+      translate([(11 + $thumb_margin * 2) * $unit + 9, 12 * $unit + 3]) rotate([0, 0, -90]) topplate(false);
+    }
+  }
+}
+
+//cut_model_300x300(false);
+preview();
