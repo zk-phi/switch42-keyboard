@@ -152,10 +152,11 @@ module preview () {
       color([1, 1, 1, 0.3])
         linear_extrude(3) topplate(left);
     translate([left ? -120 : 0, 0, 8.5])
-      color([1, 1, 1, 1])
+      color([1, 1, 1])
         linear_extrude(1.6) pcb_preview(left);
 //    translate([left ? -120 : 0, 0, 8.5])
-//      pcb_preview_kicad(left);
+//      color([1, 1, 1])
+//        pcb_preview_kicad(left);
     translate([left ? -120 : 0, 0, 3])
       color([1, 1, 1, 0.3])
         linear_extrude(3) bottomplate1(left);
