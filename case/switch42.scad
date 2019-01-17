@@ -22,8 +22,6 @@ $switch_hole = 14;
 $slop = 1;
 $promicro_height = 35 + $slop / 2;
 $promicro_width  = 7 * $100mil + $slop;
-$gomuashi_hole = 10 / 2;
-$gomuashi_pos = 2 + $gomuashi_hole;
 // TVBP06-B043CB-B
 $reset_height = 3.5 + $slop;
 $reset_width  = 6 + $slop;
@@ -98,20 +96,6 @@ module bottomplate2 (left = false) {
       translate([left ? 3 * $unit : 0, - (1 + $thumb_margin) * $unit])
         square([$unit * 3, (1 + $thumb_margin) * $unit]);
     }
-    // gomuashis
-    if (left)
-      for (x = [3 * $unit + $gomuashi_pos, 6 * $unit - $gomuashi_pos])
-        translate([x, - (1 + $thumb_margin) * $unit + $gomuashi_pos])
-          circle(r = $gomuashi_hole);
-    else
-      for (x = [$gomuashi_pos, 3 * $unit - $gomuashi_pos])
-        translate([x, - (1 + $thumb_margin) * $unit + $gomuashi_pos])
-          circle(r = $gomuashi_hole);
-    for (x = [$gomuashi_pos, $unit * 6 - $gomuashi_pos])
-      translate([x, 3 * $unit - $gomuashi_pos])
-        circle(r = $gomuashi_hole);
-    translate([left ? $gomuashi_pos : 6 * $unit - $gomuashi_pos, $gomuashi_pos])
-      circle(r = $gomuashi_hole);
   }
 }
 
