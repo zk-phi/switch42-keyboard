@@ -127,18 +127,30 @@ module pcb_preview_kicad (left = false) {
   translate([9.5, 47.5, 1.6]) import("../pcb/switch42.stl");
 }
 
+/*
+  -----------------      top (3mm)     13-15
+    5 - 3 = 2mm     + 7
+  ----------------- | m  PCB (1.6mm)   9.4-11
+    3.4mm > 6 - 3   + m
+  -----------------      bottom2 (3mm) 3-6
+  -----------------      bottom1 (3mm) 0-3
+
+  conthrough bottom = 5.5mm (min), 6mm ?
+  MX bottom = 3.3 - 1.6 = 1.7mm (min)
+  MX top = 5mm
+*/
 module preview () {
  for (left = [false, true]) {
-    translate([left ? -120 : 0, 0, 22])
+    translate([left ? -120 : 0, 0, 22.6])
       color([0.6, 0.6, 0.8])
         keycap_preview(left);
-    translate([left ? -120 : 0, 0, 12.1])
+    translate([left ? -120 : 0, 0, 13])
       color([1, 1, 1, 0.3])
         linear_extrude(3) topplate(left);
-    translate([left ? -120 : 0, 0, 8.5])
+    translate([left ? -120 : 0, 0, 9.4])
       color([1, 1, 1])
         linear_extrude(1.6) pcb_preview(left);
-//    translate([left ? -120 : 0, 0, 8.5])
+//    translate([left ? -120 : 0, 0, 9.4])
 //      color([1, 1, 1])
 //        pcb_preview_kicad(left);
     translate([left ? -120 : 0, 0, 3])
