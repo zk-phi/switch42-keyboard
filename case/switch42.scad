@@ -68,6 +68,58 @@ module topplate (left = false) {
   }
 }
 
+module middle_topplate (left = false) {
+  skrewed(left) kadomaru () difference () {
+    union () {
+      square([$unit * 6, $unit * 3]);
+      translate([left ? 3 * $unit : 0, - (1 + $thumb_margin) * $unit])
+        square([$unit * 3, (1 + $thumb_margin) * $unit]);
+    }
+    // switches
+    for (y = [0, 1, 2])
+      translate([3 * $unit, (y + 0.5) * $unit])
+        square([5 * $unit + $switch_hole, $switch_hole], center = true);
+    for (x = [1, 4])
+      translate([(x + 0.5) * $unit, (- 0.5 - $thumb_margin) * $unit])
+        square([2 * $unit + $switch_hole, $switch_hole], center = true);
+    // promicro
+    translate([2.5 * $unit, 3 * $unit - $promicro_height / 2])
+      square([$promicro_width, $promicro_height], center = true);
+    // reset sw
+    translate([3 * $unit - $slop / 2, $unit * 2 - $reset_width / 2])
+      square([$reset_height, $reset_width]);
+  }
+}
+
+module middle_bottomplate (left = false) {
+  skrewed(left) kadomaru () difference () {
+    union () {
+      square([$unit * 6, $unit * 3]);
+      translate([left ? 3 * $unit : 0, - (1 + $thumb_margin) * $unit])
+        square([$unit * 3, (1 + $thumb_margin) * $unit]);
+    }
+    // switches
+    for (y = [0, 1, 2])
+      translate([3 * $unit, (y + 0.5) * $unit])
+        square([5 * $unit + $switch_hole, $switch_hole], center = true);
+    for (x = [1, 4])
+      translate([(x + 0.5) * $unit, (- 0.5 - $thumb_margin) * $unit])
+        square([2 * $unit + $switch_hole, $switch_hole], center = true);
+    // underglow
+    translate([3 * $unit, $unit])
+      square([3 * $unit + $switch_hole, $switch_hole], center = true);
+    // promicro
+    translate([2.5 * $unit, 3 * $unit - $promicro_height / 2])
+      square([$promicro_width, $promicro_height], center = true);
+    // reset sw
+    translate([3 * $unit - $slop / 2, $unit * 2 - $reset_width / 2])
+      square([$reset_height, $reset_width]);
+    // trrs
+    translate([4 * $unit, 3 * $unit - $trrs_height / 2])
+      square([$trrs_width, $trrs_height], center = true);
+  }
+}
+
 module bottomplate1 (left = false) {
   skrewed(left) difference () {
     kadomaru() difference () {
@@ -162,6 +214,35 @@ module preview () {
   }
 }
 
+module preview_with_middle_plates () {
+ for (left = [false, true]) {
+    translate([left ? -120 : 0, 0, 22])
+      color([0.6, 0.6, 0.8])
+        keycap_preview(left);
+    translate([left ? -120 : 0, 0, 12.6])
+      color([1, 1, 1, 0.3])
+        linear_extrude(3) topplate(left);
+    translate([left ? -120 : 0, 0, 10.6])
+      color([1, 1, 1, 0.3])
+        linear_extrude(2) middle_topplate(left);
+    translate([left ? -120 : 0, 0, 9])
+      color([1, 1, 1])
+        linear_extrude(1.6) pcb_preview(left);
+//    translate([left ? -120 : 0, 0, 9])
+//      color([1, 1, 1])
+//        pcb_preview_kicad(left);
+    translate([left ? -120 : 0, 0, 6])
+      color([1, 1, 1, 0.3])
+        linear_extrude(3) middle_bottomplate(left);
+    translate([left ? -120 : 0, 0, 3])
+      color([1, 1, 1, 0.3])
+        linear_extrude(3) bottomplate1(left);
+    translate([left ? -120 : 0, 0, 0])
+      color([1, 1, 1, 0.3])
+        linear_extrude(3) bottomplate2(left);
+  }
+}
+
 module cut_model_a3 (guide = false) {
   difference () {
     if (guide) square([210, 297]);
@@ -194,3 +275,4 @@ module cut_model_300x300 (guide = false) {
 
 //cut_model_300x300(false);
 preview();
+//preview_with_middle_plates();
