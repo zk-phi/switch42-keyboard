@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:test-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -20,7 +19,7 @@ U 1 1 5C22C4C5
 P 2450 1950
 F 0 "U1" H 2450 2987 60  0000 C CNN
 F 1 "ProMicro" H 2450 2881 60  0000 C CNN
-F 2 "kbd:ProMicro_v2_irreversible" H 2550 900 60  0001 C CNN
+F 2 "SMKJP:BOARD_Pro_Micro_Reversed-conthrough" H 2550 900 60  0001 C CNN
 F 3 "" H 2550 900 60  0000 C CNN
 	1    2450 1950
 	1    0    0    -1  
@@ -619,7 +618,7 @@ U 1 1 5C2CD64F
 P 1550 3150
 F 0 "J1" H 1580 3426 50  0000 C CNN
 F 1 "MJ-4PP-9" H 1580 3335 50  0000 C CNN
-F 2 "kbd:MJ-4PP-9-irreversible" H 1825 3325 50  0001 C CNN
+F 2 "SMKJP:CON_MJ-4PP-9-kbd" H 1825 3325 50  0001 C CNN
 F 3 "~" H 1825 3325 50  0001 C CNN
 	1    1550 3150
 	1    0    0    -1  
