@@ -1572,7 +1572,7 @@ U 1 1 5C40C9A1
 P 1750 3700
 F 0 "J2" H 1830 3742 50  0000 L CNN
 F 1 "Conn_01x03" H 1830 3651 50  0000 L CNN
-F 2 "phi-kbd-library:StripLED-irreversible" H 1750 3700 50  0001 C CNN
+F 2 "phi-kbd-library:StripLED-1mm-irreversible" H 1750 3700 50  0001 C CNN
 F 3 "~" H 1750 3700 50  0001 C CNN
 	1    1750 3700
 	1    0    0    -1  
