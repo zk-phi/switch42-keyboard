@@ -273,6 +273,36 @@ module cut_model_300x300 (guide = false) {
   }
 }
 
-//cut_model_300x300(false);
-preview();
+module cut_model_2_3mm (guide = false) {
+  difference () {
+    if (guide) square([200, 200]);
+    translate([5, 5]) {
+      translate([3, 3 * $unit]) mirror([0, 1]) bottomplate1(true);
+      translate([0, (4 + $thumb_margin) * $unit + 3]) bottomplate1(false);
+    }
+  }
+}
+
+module cut_model_2_2mm_1 (guide = false) {
+  difference () {
+    if (guide) square([200, 200]);
+    translate([5, 5]) {
+      translate([3, 3 * $unit]) mirror([0, 1]) middle_bottomplate(true);
+      translate([0, (4 + $thumb_margin) * $unit + 3]) middle_bottomplate(false);
+    }
+  }
+}
+
+module cut_model_2_2mm_2 (guide = false) {
+  difference () {
+    if (guide) square([200, 200]);
+    translate([5, 5]) {
+      translate([3, 3 * $unit]) mirror([0, 1]) middle_topplate(true);
+      translate([0, (4 + $thumb_margin) * $unit + 3]) middle_topplate(false);
+    }
+  }
+}
+
+cut_model_300x300(true);
+//preview();
 //preview_with_middle_plates();
