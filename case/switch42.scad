@@ -158,6 +158,28 @@ module single_keycap_preview () {
   }
 }
 
+module single_spacer_preview () {
+  $fn = 6;
+  cylinder(d = 5, h = 7);
+}
+
+module spacer_preview (left = false) {
+  if (left) {
+    for (x = [3 * $unit + $bottom_skrew_pos3, 6 * $unit - $bottom_skrew_pos2])
+      translate([x, - $bottom_skrew_pos1, 0])
+        single_spacer_preview();
+  } else {
+    for (x = [$bottom_skrew_pos2, 3 * $unit - $bottom_skrew_pos3])
+      translate([x, - $bottom_skrew_pos1, 0])
+        single_spacer_preview();
+  }
+  translate([(left ? 1 : 5) * $unit, $unit, 0])
+    single_spacer_preview();
+  for (x = [1, 5])
+    translate([x * $unit, 2 * $unit, 0])
+      single_spacer_preview();
+}
+
 module keycap_preview (left = false) {
   for (y = [- (1 + $thumb_margin), 0, 1, 2])
     for (x = y >= 0 ? [0, 1, 2, 3, 4, 5] : left ? [3, 4, 5] : [0, 1, 2])
@@ -205,6 +227,9 @@ module preview () {
 //    translate([left ? -120 : 0, 0, 9.4])
 //      color([1, 1, 1])
 //        pcb_preview_kicad(left);
+    translate([left ? -120 : 0, 0, 6])
+      color([0.8, 0.8, 0.5])
+        spacer_preview(left);
     translate([left ? -120 : 0, 0, 3])
       color([1, 1, 1, 0.3])
         linear_extrude(3) bottomplate1(left);
