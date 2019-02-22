@@ -1,5 +1,4 @@
 EESchema Schematic File Version 4
-LIBS:switch42-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
@@ -1540,10 +1539,8 @@ Wire Wire Line
 	4550 5925 4850 5925
 Text GLabel 4400 4425 0    50   Input ~ 0
 led
-NoConn ~ 8500 6125
 Text GLabel 6925 3750 0    50   Input ~ 0
 row3
-NoConn ~ 6550 6125
 Connection ~ 8725 5625
 Wire Wire Line
 	8775 5625 8725 5625
@@ -1599,7 +1596,7 @@ F 3 "" H 1550 3600 50  0001 C CNN
 	1    1550 3600
 	1    0    0    -1  
 $EndComp
-Text GLabel 1550 3700 0    50   Input ~ 0
+Text GLabel 2550 3750 0    50   Input ~ 0
 led
 Connection ~ 5250 1800
 Wire Wire Line
@@ -1723,4 +1720,45 @@ Wire Wire Line
 	7900 3750 8600 3750
 Connection ~ 8200 2150
 Connection ~ 8200 2800
+$Comp
+L Device:Jumper JP1
+U 1 1 5C6FB6D0
+P 2850 3750
+F 0 "JP1" H 2850 4014 50  0000 C CNN
+F 1 "Jumper" H 2850 3923 50  0000 C CNN
+F 2 "phi-kbd-library:Jumper-Closed" H 2850 3750 50  0001 C CNN
+F 3 "~" H 2850 3750 50  0001 C CNN
+	1    2850 3750
+	1    0    0    -1  
+$EndComp
+Text GLabel 3150 3750 2    50   Input ~ 0
+underglow
+Text GLabel 1550 3700 0    50   Input ~ 0
+underglow
+$Comp
+L Device:Jumper_NO_Small JP2
+U 1 1 5C78F047
+P 6550 6225
+F 0 "JP2" V 6504 6273 50  0000 L CNN
+F 1 "Jumper_NO_Small" V 6595 6273 50  0000 L CNN
+F 2 "phi-kbd-library:Jumper-Open" H 6550 6225 50  0001 C CNN
+F 3 "~" H 6550 6225 50  0001 C CNN
+	1    6550 6225
+	0    1    1    0   
+$EndComp
+Text GLabel 6550 6325 0    50   Input ~ 0
+underglow
+$Comp
+L Device:Jumper_NO_Small JP3
+U 1 1 5C79F0B5
+P 8500 6225
+F 0 "JP3" V 8454 6273 50  0000 L CNN
+F 1 "Jumper_NO_Small" V 8545 6273 50  0000 L CNN
+F 2 "phi-kbd-library:Jumper-Open" H 8500 6225 50  0001 C CNN
+F 3 "~" H 8500 6225 50  0001 C CNN
+	1    8500 6225
+	0    1    1    0   
+$EndComp
+Text GLabel 8500 6325 0    50   Input ~ 0
+underglow
 $EndSCHEMATC
