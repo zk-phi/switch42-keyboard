@@ -610,7 +610,7 @@ F 3 "" H 3650 3200 50  0001 C CNN
 	1    3650 3200
 	0    -1   -1   0   
 $EndComp
-Text GLabel 1750 1200 0    50   Input ~ 0
+Text GLabel 1350 1300 0    50   Input ~ 0
 led
 $Comp
 L phi-kbd:MJ-4PP-9 J1
@@ -1761,4 +1761,16 @@ F 3 "~" H 8500 6225 50  0001 C CNN
 $EndComp
 Text GLabel 8500 6325 0    50   Input ~ 0
 underglow
+$Comp
+L Switch:SW_DPDT_x2 SW26
+U 1 1 5C7478FE
+P 1550 1200
+F 0 "SW26" H 1550 1485 50  0000 C CNN
+F 1 "SW_DPDT_x2" H 1550 1394 50  0000 C CNN
+F 2 "phi-kbd-library:IS-2235-irreversible" H 1550 1200 50  0001 C CNN
+F 3 "" H 1550 1200 50  0001 C CNN
+	1    1550 1200
+	-1   0    0    -1  
+$EndComp
+NoConn ~ 1350 1100
 $EndSCHEMATC
