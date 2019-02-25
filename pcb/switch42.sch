@@ -582,15 +582,15 @@ NoConn ~ 3150 2300
 $Comp
 L Switch:SW_Push SW1
 U 1 1 5C2974E7
-P 3450 3200
-F 0 "SW1" H 3450 3455 50  0000 C CNN
-F 1 "SW_PUSH" H 3450 3364 50  0000 C CNN
-F 2 "phi-kbd-library:ResetSW-irreversible" H 3450 3200 50  0001 C CNN
-F 3 "" H 3450 3200 50  0000 C CNN
-	1    3450 3200
+P 2800 4550
+F 0 "SW1" H 2800 4805 50  0000 C CNN
+F 1 "SW_PUSH" H 2800 4714 50  0000 C CNN
+F 2 "phi-kbd-library:ResetSW-irreversible" H 2800 4550 50  0001 C CNN
+F 3 "" H 2800 4550 50  0000 C CNN
+	1    2800 4550
 	1    0    0    -1  
 $EndComp
-Text GLabel 3250 3200 0    50   Input ~ 0
+Text GLabel 2600 4550 0    50   Input ~ 0
 reset
 Text GLabel 3150 1400 2    50   Input ~ 0
 reset
@@ -602,15 +602,15 @@ Connection ~ 1450 1500
 $Comp
 L power:GND #PWR010
 U 1 1 5C2BCC21
-P 3650 3200
-F 0 "#PWR010" H 3650 2950 50  0001 C CNN
-F 1 "GND" V 3655 3072 50  0000 R CNN
-F 2 "" H 3650 3200 50  0001 C CNN
-F 3 "" H 3650 3200 50  0001 C CNN
-	1    3650 3200
+P 3000 4550
+F 0 "#PWR010" H 3000 4300 50  0001 C CNN
+F 1 "GND" V 3005 4422 50  0000 R CNN
+F 2 "" H 3000 4550 50  0001 C CNN
+F 3 "" H 3000 4550 50  0001 C CNN
+	1    3000 4550
 	0    -1   -1   0   
 $EndComp
-Text GLabel 1350 1300 0    50   Input ~ 0
+Text GLabel 1750 1200 0    50   Input ~ 0
 led
 $Comp
 L phi-kbd:MJ-4PP-9 J1
@@ -1039,17 +1039,6 @@ F 3 "" H 6350 4525 60  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L power:VCC #PWR011
-U 1 1 5C4EF314
-P 4775 4300
-F 0 "#PWR011" H 4775 4150 50  0001 C CNN
-F 1 "VCC" H 4792 4473 50  0000 C CNN
-F 2 "" H 4775 4300 50  0001 C CNN
-F 3 "" H 4775 4300 50  0001 C CNN
-	1    4775 4300
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR012
 U 1 1 5C4EF460
 P 5325 6250
@@ -1098,28 +1087,6 @@ Wire Wire Line
 Connection ~ 5325 5925
 Wire Wire Line
 	5325 5925 5325 6250
-$Comp
-L power:VCC #PWR013
-U 1 1 5C4F8351
-P 5425 4300
-F 0 "#PWR013" H 5425 4150 50  0001 C CNN
-F 1 "VCC" H 5442 4473 50  0000 C CNN
-F 2 "" H 5425 4300 50  0001 C CNN
-F 3 "" H 5425 4300 50  0001 C CNN
-	1    5425 4300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VCC #PWR015
-U 1 1 5C4F849D
-P 6075 4300
-F 0 "#PWR015" H 6075 4150 50  0001 C CNN
-F 1 "VCC" H 6092 4473 50  0000 C CNN
-F 2 "" H 6075 4300 50  0001 C CNN
-F 3 "" H 6075 4300 50  0001 C CNN
-	1    6075 4300
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	5425 6125 5500 6125
 Wire Wire Line
@@ -1139,39 +1106,6 @@ Wire Wire Line
 Connection ~ 5425 5625
 Wire Wire Line
 	5425 5625 5425 6125
-$Comp
-L power:VCC #PWR017
-U 1 1 5C4FEDCC
-P 6725 4300
-F 0 "#PWR017" H 6725 4150 50  0001 C CNN
-F 1 "VCC" H 6742 4473 50  0000 C CNN
-F 2 "" H 6725 4300 50  0001 C CNN
-F 3 "" H 6725 4300 50  0001 C CNN
-	1    6725 4300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VCC #PWR019
-U 1 1 5C4FEF18
-P 7375 4300
-F 0 "#PWR019" H 7375 4150 50  0001 C CNN
-F 1 "VCC" H 7392 4473 50  0000 C CNN
-F 2 "" H 7375 4300 50  0001 C CNN
-F 3 "" H 7375 4300 50  0001 C CNN
-	1    7375 4300
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:VCC #PWR021
-U 1 1 5C4FF025
-P 8025 4300
-F 0 "#PWR021" H 8025 4150 50  0001 C CNN
-F 1 "VCC" H 8042 4473 50  0000 C CNN
-F 2 "" H 8025 4300 50  0001 C CNN
-F 3 "" H 8025 4300 50  0001 C CNN
-	1    8025 4300
-	1    0    0    -1  
-$EndComp
 $Comp
 L power:GND #PWR014
 U 1 1 5C4FF171
@@ -1585,17 +1519,6 @@ F 3 "" H 1550 3800 50  0001 C CNN
 	1    1550 3800
 	1    0    0    -1  
 $EndComp
-$Comp
-L power:VCC #PWR0102
-U 1 1 5C40E716
-P 1550 3600
-F 0 "#PWR0102" H 1550 3450 50  0001 C CNN
-F 1 "VCC" H 1567 3773 50  0000 C CNN
-F 2 "" H 1550 3600 50  0001 C CNN
-F 3 "" H 1550 3600 50  0001 C CNN
-	1    1550 3600
-	1    0    0    -1  
-$EndComp
 Text GLabel 2550 3750 0    50   Input ~ 0
 led
 Connection ~ 5250 1800
@@ -1764,13 +1687,53 @@ underglow
 $Comp
 L Switch:SW_DPDT_x2 SW26
 U 1 1 5C7478FE
-P 1550 1200
-F 0 "SW26" H 1550 1485 50  0000 C CNN
-F 1 "SW_DPDT_x2" H 1550 1394 50  0000 C CNN
-F 2 "phi-kbd-library:IS-2235-irreversible" H 1550 1200 50  0001 C CNN
-F 3 "" H 1550 1200 50  0001 C CNN
-	1    1550 1200
+P 1800 4525
+F 0 "SW26" H 1800 4810 50  0000 C CNN
+F 1 "SW_DPDT_x2" H 1800 4719 50  0000 C CNN
+F 2 "phi-kbd-library:IS-2235-irreversible" H 1800 4525 50  0001 C CNN
+F 3 "" H 1800 4525 50  0001 C CNN
+	1    1800 4525
 	-1   0    0    -1  
 $EndComp
-NoConn ~ 1350 1100
+NoConn ~ 1600 4425
+$Comp
+L power:VCC #PWR0102
+U 1 1 5C7E2885
+P 2000 4525
+F 0 "#PWR0102" H 2000 4375 50  0001 C CNN
+F 1 "VCC" V 2017 4653 50  0000 L CNN
+F 2 "" H 2000 4525 50  0001 C CNN
+F 3 "" H 2000 4525 50  0001 C CNN
+	1    2000 4525
+	0    1    1    0   
+$EndComp
+Text GLabel 1600 4625 0    50   Input ~ 0
+ledpower
+Text GLabel 1550 3600 0    50   Input ~ 0
+ledpower
+Text GLabel 4775 4300 1    50   Input ~ 0
+ledpower
+Text GLabel 5425 4300 1    50   Input ~ 0
+ledpower
+Text GLabel 6075 4300 1    50   Input ~ 0
+ledpower
+Text GLabel 6725 4300 1    50   Input ~ 0
+ledpower
+Text GLabel 7375 4300 1    50   Input ~ 0
+ledpower
+Text GLabel 8025 4300 1    50   Input ~ 0
+ledpower
+$Comp
+L power:PWR_FLAG #FLG0101
+U 1 1 5C7CE274
+P 3050 3125
+F 0 "#FLG0101" H 3050 3200 50  0001 C CNN
+F 1 "PWR_FLAG" H 3050 3298 50  0000 C CNN
+F 2 "" H 3050 3125 50  0001 C CNN
+F 3 "~" H 3050 3125 50  0001 C CNN
+	1    3050 3125
+	1    0    0    1   
+$EndComp
+Text GLabel 3050 3125 1    50   Input ~ 0
+ledpower
 $EndSCHEMATC
