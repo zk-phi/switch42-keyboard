@@ -2939,7 +2939,7 @@
     )
   )
 
-  (module phi-kbd-library:StripLED-1mm-irreversible (layer B.Cu) (tedit 5C6F4193) (tstamp 5C5A4461)
+  (module phi-kbd-library:StripLED-1mm-irreversible (layer B.Cu) (tedit 5C4DAFA0) (tstamp 5C5A4461)
     (at 74.15141 72.100458 180)
     (path /5C40C9A1)
     (fp_text reference J2 (at 0 2.54 180) (layer B.SilkS) hide
@@ -2948,8 +2948,8 @@
     (fp_text value Conn_01x03 (at 0 -7.62 180) (layer B.Fab) hide
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
     )
-    (fp_line (start 0.001 -7.5184) (end -0.001 -7.5184) (layer B.SilkS) (width 0.15))
-    (fp_line (start -0.001 2.4892) (end 0.001 2.4892) (layer B.SilkS) (width 0.15))
+    (fp_line (start -0.762 -7.5184) (end 0.762 -7.5184) (layer B.SilkS) (width 0.15))
+    (fp_line (start -0.762 2.4892) (end 0.762 2.4892) (layer B.SilkS) (width 0.15))
     (pad 1 smd rect (at 0 0 180) (size 1.524 1.524) (layers B.Cu B.Paste B.Mask)
       (net 74 ledpower))
     (pad 2 smd rect (at 0 -2.54 180) (size 1.524 1.524) (layers B.Cu B.Paste B.Mask)
