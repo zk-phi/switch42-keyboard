@@ -134,6 +134,8 @@ Pro Micro にファームウェアを書き込みます。
 
 私のリポジトリ (https://github.com/zk-phi/qmk_firmware) からコードをダウンロード後、QMK Firmware の公式ページを参考に環境を構築します。
 
+キーボードを光らせるためにテープ LED を使用する場合、 qmk_firmware/keyboards/switch42/keymaps/default/config.h の「USE_BAKCLIGHT」 の行をコメントアウトします。
+
 ![promicro_usb](images/promicro_usb.JPG)
 
 環境ができたら、 Pro Micro を USB で接続した上で
